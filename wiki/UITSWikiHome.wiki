@@ -4,7 +4,7 @@
 
 Welcome to the Unique Identifier Technology Solution (UITS) Wiki. This Wiki
 contains information about the UITS specification and about the UITS reference 
-implementation.
+implementation. For further information about UITS, go to uits.umusic.com.
 
 = Introduction =
 
