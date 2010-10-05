@@ -1,0 +1,94 @@
+README
+     $Author$
+     $Revision$
+     $Date$
+-------------------
+
+LICENSING
+   Licensing information for this project is contained in the file LICENSE included
+   in the same directory as this README file.
+
+INTRODUCTION
+
+    This README file describes the UITS_Tool version 2.0 distribution. For information about UITS, 
+    please contact Universal Music group at uits.umusic.com.
+	
+	It is assumed that users of this tool have a familiarity with the Universal 
+	Music Group's Unique Identifier Technology Solution (UITS). This version of
+	the UITS_Tool supports the UITS Technical Specification, v1.1. For further 
+	information on UITS, contact Universal Music Group.
+
+	UITS_Tool is a command-line tool that creates, validates, and extracts UITS
+	payloads. Version 2.0 suports MP3, AAC, WAV, FLAC and AIFF file formats.
+	
+	This distribution includes the following directories:
+	
+		uits/       The project root directory
+		  trunk/    The Subversion trunk
+                        doc/          UITS documentation
+			source/       The source (.c) and header (.h) files used for both MacOS and Windows
+			test-scripts/ Platform-independent test scripts
+			test/         Platform-independent test files that are used by the scripts 
+			              in the test-scriptsdirectory
+			uits-osx-make/
+				The Makefile, executable (UITS_Tool), libraries, shell script, and test files
+				for building and running the tool from the Unix command line.
+			uits-osx-code/
+				A Mac X-Code project for building and running the UITS_Tool.
+			uits-win-mingw/
+				The Makefile (windows.mak), executable (UITS_Tool.exe), libraries, scripts
+				and test files for building the tool using MinGW and running the tool
+				from a DOS command line.
+				
+RUNNING UITS_Tool
+	Under both Windows and MacOS, the tool is run from the command line. Open a terminal
+	or DOS command window, cd to the directory containing the executable for the environment.
+	For help:
+		UITS_Tool help	   (Unix)
+		UITS_Tool.exe help (DOS)
+		
+	The tool is also distributed with shell (or DOS command) scripts that make running the
+	tool easier. Under unix, type ./runUITS.sh. Under DOS, type runUITS_create.bat or
+	runUITS_verify.bat.
+
+BUILDING UITS_Tool
+
+   The UITS_Tool is written in C and has been compiled using the GNU C compiler on Mac
+   and Windows (MinGW). It uses several open source libraries. Compiled versions of those
+   libraries are distributed with the tool. To build in another environment, those
+   libraries must be re-compiled. The three libraries are:
+			OpenSSL -  (http://www.openssl.org/) Version 1.0 beta4 
+			Libxml2 -  (http://xmlsoft.org/) Distributed with MacOSX 
+			Mini-XML - (http://www.minixml.org/)
+			FLAC     - (http://flac.sourceforge.net/)
+			
+	To build under MacOSX using X-Code, use the xcode project,
+		uits-osx-xcode/uits-osx-xcode.xcodeproj
+		
+	To build under MacOSX from the command line:
+		1. open a terminal window
+		2. cd to uits-osx-make
+		3. make
+		
+	To build under Windows:
+		1. Install MinGW and Msys
+		2. Run MinGW 
+		3. cd to uits-win-mingw
+		4. make -f windows.mak
+	
+TESTING UITS_Tool
+   The test-scripts directory contains a UITS_TEST_README file which lists all of the test cases. 
+   It also contains the scripts for running the tests:
+       testUITS	
+       testUITSargs	
+       testUITSaudio	
+       testUITScreate	
+	   
+	The testUITS script calls each of the other scripts. It will test whatever version of
+	the UITS_tool is in the test-script directory. 
+	
+	To run all tests:
+		1. cd to test-scripts
+		2. ./testUITS (or ./testUITS help)
+		
+		
