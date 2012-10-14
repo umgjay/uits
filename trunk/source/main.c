@@ -42,7 +42,7 @@ int main (int argc, const char * argv[]) {
 	switch (uitsAction) {	// uitsAction value is set in uitsGetOpt
 			
 		case CREATE:
-			dprintf ("Create UITS payload\n");
+//			dprintf ("Create UITS payload\n");
 			err = uitsGetOptCreate(argc, argv);		// parse the command-line options 
 			fflush(stdout);
 			uitsHandleErrorINT(moduleName, "main", err, OK, ERR_PARSE,
