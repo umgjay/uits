@@ -210,7 +210,7 @@ int mp4EmbedPayload  (char *audioFileName,
 	/* now write the UUID as hex */
 	err= uuid_parse(uitsUUIDString, uuid);
 	uitsHandleErrorINT(mp4ModuleName, "mp4EmbedPayload", err, 0, ERR_MP4, "Couldn't convert uuid to hex\n");
-	
+//	printf("uitsUUIDString: %s", uitsUUIDString);
 	
 	// strPtr = calloc(((UUID_SIZE+1)*2), 1);
 	// strPtr2 = strPtr;
@@ -269,7 +269,8 @@ char *mp4ExtractPayload (char *audioFileName)
 	/* convert the char UITS uuid to hex */
 	err= uuid_parse(uitsUUIDString, uitsUUID);
 	uitsHandleErrorINT(mp4ModuleName, "mp4ExtractPayload", err, 0, ERR_MP4, "Couldn't convert UITS uuid to hex\n");
-	
+//	printf("uitsUUIDString: %s", uitsUUIDString);
+
 	/* open the audio input file */
 	audioFP = fopen(audioFileName, "rb");
 	uitsHandleErrorPTR(mp4ModuleName, "mp4ExtractPayload", audioFP, ERR_FILE, "Couldn't open audio file for reading\n");

@@ -67,7 +67,8 @@ int	uuid_parse(const char *in, uuid_t uu)
 	long int		time_mid;
 	long int		time_hi_and_version;
 	long int		clock_seq;
-	long int		node[3];
+//	long int		node[3];
+	unsigned char		node[6];
 	unsigned char	*out = uu;
 	
 	//	char *uitsUUIDString = "99454E27-963A-4B56-8E76-1DB68C899CD4";
@@ -112,7 +113,8 @@ int	uuid_parse(const char *in, uuid_t uu)
 	clock_seq >>= 8;
 	out[8] = (unsigned char) clock_seq;
 	
-	cp = uu+24;
+//	cp = uu+24;
+	cp = in+24;
 	buf[2] = 0;
 	for (i=0; i < 6; i++) {
 		buf[0] = *cp++;
