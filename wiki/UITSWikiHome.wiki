@@ -49,10 +49,10 @@ The tool is also distributed with shell (or DOS command) scripts that make runni
 
 
 The UITS_Tool is written in C and has been compiled using the GNU C compiler on Mac and Windows (MinGW). It uses several open source libraries. Compiled versions of those libraries are distributed with the tool. To build in another environment, those  libraries must be re-compiled. The three libraries are:
-* OpenSSL -  (http://www.openssl.org/) Version 1.0 beta4 
-* Libxml2 -  (http://xmlsoft.org/) Distributed with MacOSX 
-*  Mini-XML - (http://www.minixml.org/)
-* FLAC     - (http://flac.sourceforge.net/)
+ * OpenSSL -  (http://www.openssl.org/) Version 1.0 beta4 
+ * Libxml2 -  (http://xmlsoft.org/) Distributed with MacOSX 
+ *  Mini-XML - (http://www.minixml.org/)
+ * FLAC     - (http://flac.sourceforge.net/)
 			
 To build under MacOSX using X-Code, use the xcode project,
   * uits-osx-xcode/uits-osx-xcode.xcodeproj
