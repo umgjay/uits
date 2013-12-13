@@ -25,6 +25,11 @@
  *          * The one keyID option has been deprecated vs the original UITS specification
  *          * The CME-UITS has a different XML namespace
  *          * The CME-UITS is placed in its own file at the root of a CME Package as described in the CME specifications.
+ *
+ * CME Version 1.3 has the following changes:
+ *			* The root element is <CME-UITS> instead of <UITS>
+ *			* The namespace is
+ *				<cme-uits:CME-UITS xmlns:cme-uits="http://www.udirector.net/schemas/2011/cme-uits/1.3">
  *  
  *	$Date: 2011-09-24 09:32:54 -0700 (Sat, 24 Sep 2011) $
  *	$Revision: 89 $
@@ -40,7 +45,10 @@ char *cmePayloadModuleName = "cmeFileManager.c";
 
 char *payloadFileName;				// CME UITS payload file name 
 UITS_signature_desc *cmeSignatureDesc;
-char *cmeXSDFileName = "cme-uits.xsd";				// CME scema description 
+char *cmeXSDFileNamev12 = "cme-uits.xsd";			// CME 1.2 schema description 
+
+char *cmeXSDFileName = "CME-UITSv1.3.xsd";			// CME 1.3 schema description 
+
 
 int	 verifyFlag;					// set if extracted payload should be verified
 int  gpMediaHashFlag;				// genparam: Media_Hash
@@ -172,7 +180,7 @@ int cmeCreate ()
 	
 	// validate the xml payload that was created
 	vprintf("Validating payload ...\n");
-	
+
 	err =  uitsVerifyPayloadXML (xml, payloadXMLString, cmeXSDFileName, TRUE, cmeSignatureDesc);
 	uitsHandleErrorINT(cmePayloadModuleName, "cmeCreate", err, OK, ERR_PAYLOAD, 
 					   "Error: Couldn't validate XML payload\n");

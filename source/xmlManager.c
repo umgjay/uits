@@ -34,18 +34,23 @@ mxml_node_t * uitsCreatePayloadXML (int xmlSchemaType, UITS_element *metadataPtr
 	// create the XML Root node
 	
 	xml = mxmlNewXML("1.0");
-	xmlRootNode = mxmlNewElement(xml, "uits:UITS");
-	mxmlElementSetAttr( xmlRootNode, "xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance");
 	
 	
 	switch (xmlSchemaType) {	// uitsAction value is set in uitsGetOpt
 			
 		case UITS_XML:
+			xmlRootNode = mxmlNewElement(xml, "uits:UITS");
+			mxmlElementSetAttr( xmlRootNode, "xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance");
 			mxmlElementSetAttr( xmlRootNode, "xmlns:uits", "http://www.udirector.net/schemas/2009/uits/1.1");
 			break;
 			
 		case CME_XML:
-			mxmlElementSetAttr( xmlRootNode, "xmlns:uits", "http://www.udirector.net/schemas/2011/cmeuits/1.2");
+			xmlRootNode = mxmlNewElement(xml, "cme-uits:CME-UITS");
+//			xmlRootNode = mxmlNewElement(xml, "uits:UITS");
+			mxmlElementSetAttr( xmlRootNode, "xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance");
+			mxmlElementSetAttr( xmlRootNode, "xmlns:cme-uits", "http://www.udirector.net/schemas/2011/cme-uits/1.3");
+//			mxmlElementSetAttr( xmlRootNode, "xmlns:uits", "http://www.udirector.net/schemas/2011/cmeuits/1.2");
+			
 			break;
 			
 		default:

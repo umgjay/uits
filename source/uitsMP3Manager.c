@@ -378,7 +378,7 @@ int mp3CheckFileVersion (char *audioFileName)
 	id3Header = mp3ReadID3Header(audioInFP);
 	uitsHandleErrorPTR(mp3ModuleName, "mp3ExtractUITSPayload", id3Header, ERR_MP3, "Couldn't read ID3 header\n");
 	
-	if (id3Header->majorVersion != 3) {
+	if ((id3Header->majorVersion != 3) && (id3Header->majorVersion != 4)){
 		snprintf(errStr, ERRSTR_LEN, 
 				 "MP3 file ID3 Tag format ID3V2.%d.%d not supported.\n", 
 				 id3Header->majorVersion, 
@@ -682,9 +682,11 @@ char *mp3FindUITSPayload (FILE *audioInFP)
 
 		/* is it a UITS payload? */
 		/* look for the the uits:UITS open tag string in the priv frame data */
-		if (strstr(strPtr, ":UITS")) {
+		if (strstr(strPtr, "<uits:UITS")) {
+			/* if there is an encoding string, return that pointer */
 			uitsPayloadXML = strstr(strPtr, "<?xml");
-			return (uitsPayloadXML);
+			if (uitsPayloadXML)return (uitsPayloadXML);
+			else return (strPtr);
 		}
 		
 	}
