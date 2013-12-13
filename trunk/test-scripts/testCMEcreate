@@ -5,6 +5,8 @@
 # Created by Chris Angelli on 10/30/2011
 # Copyright 2010 Universal Music Group. All rights reserved.
 #
+# December, 2013 - Updated to CME v 1.3
+#
 # $Date$
 # $Revision$
 #
@@ -12,7 +14,8 @@
 
 output_dir="../test/test-output"
 
-default_xsd="../test/cme-uits_cma.xsd"
+# default_xsd="../test/cme-uits_cma.xsd"
+default_xsd="../test/CME-UITSv1.3.xsd"
 default_uits="$output_dir/cme_test_payload.xml"
 default_algorithm="RSA2048"
 default_priv="../test/privateRSA2048.pem"
