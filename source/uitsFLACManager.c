@@ -94,7 +94,7 @@ char *flacGetMediaHash (char *audioFileName)
 	
 	/* cleanup */
 	FLAC__stream_decoder_delete(decoder);
-	fclose(audioFP);
+//	fclose(audioFP);
 
 //	vprintf("Audio Frame Start: %d, audioFrameEnd: %d, audioFrameLength: %d\n", audioFrameStart, audioFrameEnd, audioFrameLength);
 	

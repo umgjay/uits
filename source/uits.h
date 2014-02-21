@@ -56,8 +56,8 @@
 
 #define MAX_COMMAND_LINE_OPTIONS 50
 
-#define vprintf(...)  if (!silentFlag && verboseFlag) {printf (__VA_ARGS__);}
-#define dprintf(...)  if (!silentFlag && debugFlag)   {printf (__VA_ARGS__);}
+#define vprintf(...)  if (!silentFlag && verboseFlag) {fprintf (stderr, __VA_ARGS__);}
+#define dprintf(...)  if (!silentFlag && debugFlag)   {fprintf (stderr, __VA_ARGS__);}
 
 int silentFlag ;					// silent mode (overrides verbose if both are specified)
 int verboseFlag;					// verbose message flag (DEFAULT mode is verbose)
