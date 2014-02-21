@@ -861,7 +861,7 @@ MP3_AUDIO_FRAME_HEADER *mp3ReadAudioFrameHeader (FILE *fpin)
 {
 	MP3_AUDIO_FRAME_HEADER *frameHeader = calloc(sizeof(MP3_AUDIO_FRAME_HEADER), 1);
 	int saveSeek;		// always leave the file pointer where it was when the function was called
-	unsigned char header[3];
+	unsigned char header[4];
 	unsigned char bytebuf;
 
 //	unsigned long next_frame, save_seek, aindex = 0L;

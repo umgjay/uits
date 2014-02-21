@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # testUITS - Shell script for running the UITS_Tool test suite
 #
@@ -44,15 +44,15 @@ if [ $# == 1 ] ; then # run only requested tests
      ./testUITSaudio $1
   fi 
 else				  # run all tests
-	echo "Running create tests"
+	echo -e "Running create tests"
 	 ./testUITScreate
 
-	echo "Running argument validation tests"
+	echo -e "Running argument validation tests"
 	 ./testUITSargs
 
-	echo "Running audio file tests"
+	echo -e "Running audio file tests"
 	./testUITSaudio 
-	echo "Test suite complete"
+	echo -e "Test suite complete"
 fi
 
 
