@@ -1,12 +1,12 @@
-#!/bin/sh
+#!/bin/bash
 
 # testUITSaudio - Shell script for running the UITS_Tool audio file tests
 #
 # Created by Chris Angelli on 8/11/10.
 # Copyright 2010 Universal Music Group. All rights reserved.
 #
-# $Date$
-# $Revision$
+# $Date: 2010-12-30 15:43:49 -0800 (Thu, 30 Dec 2010) $
+# $Revision: 84 $
 #
 # usage: testUITSaudio [mp3 aac wav flac]
 
@@ -101,9 +101,9 @@ UITS_create()
 	--Time $default_Time`
 	exit_status=$?
 	if [ $exit_status != 0 ]; then
-	 echo -e "FAIL"
+	 echo "FAIL"
 	else
-	 echo -e "PASS"
+	 echo "PASS"
 	fi
 
 }
@@ -132,9 +132,9 @@ UITS_verify()
 	exit_status=$?
 	
 	if [ $exit_status != 0 ]; then
-	 echo -e "FAIL"
+	 echo "FAIL"
 	else
-	 echo -e "PASS"
+	 echo "PASS"
 	fi
 
 }
@@ -156,9 +156,9 @@ UITS_verify_standalone()
 	exit_status=$?
 	
 	if [ $exit_status != 0 ]; then
-	 echo -e "FAIL"
+	 echo "FAIL"
 	else
-	 echo -e "PASS"
+	 echo "PASS"
 	fi
 
 }
@@ -168,76 +168,76 @@ if [ $# -lt 1 ] ; then
 elif [ $# == 1 ] ; then
 	file_types=($1) # test only requested file type
 else
-    echo -e "ERROR: Too many file types specified" # error
+    echo "ERROR: Too many file types specified" # error
 fi
 
 # test all requested file types
 
 for type in ${file_types[@]}; do 
-	echo -e "Running $type file tests"
+	echo "Running $type file tests"
 
 	audio_file="../test/test_audio.$type"
 	
 	# CREATE tests
-	echo -e "Test 1: Create $type standalone payload ... \c"	
+	echo "Test 1: Create $type standalone payload ... "	
 	uits_file="$output_dir/test1_payload.$type"
 	UITS_create $audio_file $uits_file "standalone" "rsa" "singleline" "no_b64"
 	
-	echo -e "Test 2: Create $type embedded payload ... \c"
+	echo "Test 2: Create $type embedded payload ... "
 	uits_file="$output_dir/test2_embed_payload.$type"
 	UITS_create $audio_file $uits_file "embed" "rsa" "singleline" "no_b64"
 		
-	echo -e "Test 3: Create $type with DSA key ... \c"
+	echo "Test 3: Create $type with DSA key ... "
 	uits_file="$output_dir/test3_dsa_signature.$type"
 	UITS_create $audio_file $uits_file "embed" "dsa" "singleline" "no_b64"
 	
-	echo -e "Test 4: Create $type with multiline signature ... \c"
+	echo "Test 4: Create $type with multiline signature ... "
 	uits_file="$output_dir/test4_multiline_signature.$type"
 	UITS_create $audio_file $uits_file "embed" "rsa" "multiline" "no_b64"
 
-	echo -e "Test 5: Create $type with base-64 encoded media hash ... \c"
+	echo "Test 5: Create $type with base-64 encoded media hash ... "
 	uits_file="$output_dir/test5_b64_signature.$type"
 	UITS_create $audio_file $uits_file "embed" "rsa" "singleline" "b64"
 	
 	# VERIFY tests
-	echo -e "Test 6: Verify $type embedded payload with hash verification, RSA signature  ... \c"	
+	echo "Test 6: Verify $type embedded payload with hash verification, RSA signature  ... "	
 	audio_file="$output_dir/test2_embed_payload.$type"
 	UITS_verify $audio_file "rsa" "hash"
 
-	echo -e "Test 7: Verify $type embedded payload with hash verification, DSA signature  ... \c"	
+	echo "Test 7: Verify $type embedded payload with hash verification, DSA signature  ... "	
 	audio_file="$output_dir/test3_dsa_signature.$type"
 	UITS_verify $audio_file "dsa" ""
 
-	echo -e "Test 8: Verify $type embedded payload, no hash verification ... \c"	
+	echo "Test 8: Verify $type embedded payload, no hash verification ... "	
 	audio_file="$output_dir/test2_embed_payload.$type"
 	UITS_verify $audio_file "rsa" "--nohash" 
 
-	echo -e "Test 9: Verify $type embedded payload, hash verification against hash file ... \c"
+	echo "Test 9: Verify $type embedded payload, hash verification against hash file ... "
 	audio_file="$output_dir/test2_embed_payload.$type"
 	hash_file="$output_dir/test2_embed_payload.hash"
 
 	`./UITS_Tool hash --input $audio_file --output $hash_file 1>/dev/null 2>/dev/null`
 	UITS_verify $audio_file "rsa" "--hashfile $hash_file"
 
-	echo -e "Test 10: Verify $type embedded payload, hash verification against hash value ... \c"
+	echo "Test 10: Verify $type embedded payload, hash verification against hash value ... "
 	hash_value=`cat $hash_file`
 	UITS_verify $audio_file "rsa" "--hash $hash_value"
 
-	echo -e "Test 11: Verify $type standalone payload, no hash verification ... \c"
+	echo "Test 11: Verify $type standalone payload, no hash verification ... "
 	uits_file="$output_dir/test1_payload.$type"
 	UITS_verify_standalone $uits_file "--nohash"
 	
-	echo -e "Test 12: Verify $type standalone payload, hash verification against audio file ... \c"
+	echo "Test 12: Verify $type standalone payload, hash verification against audio file ... "
 	audio_file="../test/test_audio.$type"
 	UITS_verify_standalone $uits_file "--input $audio_file"
 
-	echo -e "Test 13: Verify $type standalone payload, hash verification against hash file ... \c"
+	echo "Test 13: Verify $type standalone payload, hash verification against hash file ... "
 	UITS_verify_standalone $uits_file "--hashfile $hash_file"
 
-	echo -e "Test 14: Verify $type standalone payload, hash verification against hash value ... \c"
+	echo "Test 14: Verify $type standalone payload, hash verification against hash value ... "
 	UITS_verify_standalone $uits_file "--hash $hash_value"
 
-	echo -e "Test 15: Extract UITS payload from $type file ... \c"
+	echo "Test 15: Extract UITS payload from $type file ... "
 	audio_file="$output_dir/test3_dsa_signature.$type"
 	uits_file="$output_dir/test15_extracted_payload.$type"
 	`./UITS_Tool extract \
@@ -247,12 +247,12 @@ for type in ${file_types[@]}; do
 	exit_status=$?
 	
 	if [ $exit_status != 0 ]; then
-	 echo -e "FAIL"
+	 echo "FAIL"
 	else
-	 echo -e "PASS"
+	 echo "PASS"
 	fi
 
-	echo -e "Test 16: Extract UITS payload from $type file, verify payload, RSA algorithm ...\c"
+	echo "Test 16: Extract UITS payload from $type file, verify payload, RSA algorithm ..."
 	audio_file="$output_dir/test2_embed_payload.$type"
 	uits_file="$output_dir/test16_extracted_payload.$type"
 	`./UITS_Tool extract \
@@ -265,12 +265,12 @@ for type in ${file_types[@]}; do
 	exit_status=$?
 	
 	if [ $exit_status != 0 ]; then
-	 echo -e "FAIL"
+	 echo "FAIL"
 	else
-	 echo -e "PASS"
+	 echo "PASS"
 	fi
 
-	echo -e "Test 17: Extract UITS payload from $type file, verify payload, DSA algorithm ...\c"
+	echo "Test 17: Extract UITS payload from $type file, verify payload, DSA algorithm ..."
 	audio_file="$output_dir/test3_dsa_signature.$type"
 	uits_file="$output_dir/test17_extracted_payload.$type"
 	verify_algorithm="DSA2048"
@@ -286,9 +286,9 @@ for type in ${file_types[@]}; do
 	exit_status=$?
 	
 	if [ $exit_status != 0 ]; then
-	 echo -e "FAIL"
+	 echo "FAIL"
 	else
-	 echo -e "PASS"
+	 echo "PASS"
 	fi
 
 done

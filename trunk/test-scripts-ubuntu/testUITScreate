@@ -1,12 +1,12 @@
-#!/bin/sh
+#!/bin/bash
 
 # testUITScreate - Shell script for running the UITS_Tool "create" tests
 #
 # Created by Chris Angelli on 8/11/10.
 # Copyright 2010 Universal Music Group. All rights reserved.
 #
-# $Date$
-# $Revision$
+# $Date: 2010-11-05 13:26:15 -0700 (Fri, 05 Nov 2010) $
+# $Revision: 83 $
 #
 # usage: testUITScreate
 
@@ -41,7 +41,7 @@ default_Time="2008-08-30T13:15:04Z"
 # Test 1	All arguments correct, embed payload	
 #
 
-echo -e "Test 1 ... \c"
+echo "Test 1 ... "
 `./UITS_Tool create \
 --silent \
 --input $default_audio \
@@ -71,14 +71,14 @@ echo -e "Test 1 ... \c"
 --Time $default_Time`
 exit_status=$?
 if [ $exit_status != 0 ]; then
- echo -e "FAIL"
+ echo "FAIL"
 else
- echo -e "PASS"
+ echo "PASS"
 fi
 
 
 # Test 2	All arguments correct, standalone payload	
-echo -e "Test 2 ... \c"
+echo "Test 2 ... "
 `./UITS_Tool create \
 --silent \
 --input $default_audio \
@@ -107,13 +107,13 @@ echo -e "Test 2 ... \c"
 --Time $default_Time`
 exit_status=$?
 if [ $exit_status != 0 ]; then
- echo -e "FAIL"
+ echo "FAIL"
 else
- echo -e "PASS"
+ echo "PASS"
 fi
 
 # Test 3	Silent mode					Verify that silent mode only displays an exit code
-echo -e "Test 3 ... \c"
+echo "Test 3 ... "
 return_string=`./UITS_Tool create \
 --silent \
 --input $default_audio \
@@ -142,13 +142,13 @@ return_string=`./UITS_Tool create \
 --Time $default_Time`
 exit_status=$?
 if [ "$return_string" == "" ]; then
- echo -e "PASS"
+ echo "PASS"
 else
- echo -e "FAIL"
+ echo "FAIL"
 fi
 
 # Test 4	audio missing				Should fail
-echo -e "Test 4 ... \c"
+echo "Test 4 ... "
 `./UITS_Tool create \
 --silent \
 --xsd $default_xsd \
@@ -177,13 +177,13 @@ echo -e "Test 4 ... \c"
 --Time $default_Time`
 exit_status=$?
 if [ $exit_status != 132 ]; then	# should fail with an exit status of 132
- echo -e "FAIL"
+ echo "FAIL"
 else
- echo -e "PASS"
+ echo "PASS"
 fi
 
 # Test 5	uits missing				Should fail
-echo -e "Test 5 ... \c"
+echo "Test 5 ... "
 `./UITS_Tool create \
 --silent \
 --input $default_audio \
@@ -212,13 +212,13 @@ echo -e "Test 5 ... \c"
 --Time $default_Time`
 exit_status=$?
 if [ $exit_status != 132 ]; then	# should fail with an exit status of 132
- echo -e "FAIL"
+ echo "FAIL"
 else
- echo -e "PASS"
+ echo "PASS"
 fi
 
 # Test 6	pub missing					Should fail
-echo -e "Test 6 ... \c"
+echo "Test 6 ... "
 `./UITS_Tool create \
 --silent \
 --input $default_audio \
@@ -247,13 +247,13 @@ echo -e "Test 6 ... \c"
 --Time $default_Time`
 exit_status=$?
 if [ $exit_status != 132 ]; then	# should fail with an exit status of 132
- echo -e "FAIL"
+ echo "FAIL"
 else
- echo -e "PASS"
+ echo "PASS"
 fi
 
 # Test 7	priv missing				Should fail
-echo -e "Test 7 ... \c"
+echo "Test 7 ... "
 `./UITS_Tool create \
 --silent \
 --input $default_audio \
@@ -282,14 +282,14 @@ echo -e "Test 7 ... \c"
 --Time $default_Time`
 exit_status=$?
 if [ $exit_status != 132 ]; then	# should fail with an exit status of 132
- echo -e "FAIL"
+ echo "FAIL"
 else
- echo -e "PASS"
+ echo "PASS"
 fi
 
 # Test 8	pubID missing				Should fail
 
-echo -e "Test 8 ... \c"
+echo "Test 8 ... "
 `./UITS_Tool create \
 --silent \
 --input $default_audio \
@@ -318,13 +318,13 @@ echo -e "Test 8 ... \c"
 --Time $default_Time`
 exit_status=$?
 if [ $exit_status != 132 ]; then	# should fail with an exit status of 132
- echo -e "FAIL"
+ echo "FAIL"
 else
- echo -e "PASS"
+ echo "PASS"
 fi
 
 # Test 9	nonce missing				Should fail
-echo -e "Test 9 ... \c"
+echo "Test 9 ... "
 `./UITS_Tool create \
 --silent \
 --input $default_audio \
@@ -353,13 +353,13 @@ echo -e "Test 9 ... \c"
 --Time $default_Time 2>/dev/null`
 exit_status=$?
 if [ $exit_status != 144 ]; then	# should fail with an exit status of 144
- echo -e "FAIL"
+ echo "FAIL"
 else
- echo -e "PASS"
+ echo "PASS"
 fi
 
 # Test 10	Distributor missing			Should fail
-echo -e "Test 10 ... \c"
+echo "Test 10 ... "
 `./UITS_Tool create \
 --silent \
 --input $default_audio \
@@ -388,13 +388,13 @@ echo -e "Test 10 ... \c"
 --Time $default_Time 2>/dev/null`
 exit_status=$?
 if [ $exit_status != 144 ]; then	# should fail with an exit status of 144
- echo -e "FAIL"
+ echo "FAIL"
 else
- echo -e "PASS"
+ echo "PASS"
 fi
 
 # Test 11	Time missing				If missing, should be auto-generated
-echo -e "Test 11 ... \c"
+echo "Test 11 ... "
 `./UITS_Tool create \
 --silent \
 --input $default_audio \
@@ -423,13 +423,13 @@ echo -e "Test 11 ... \c"
 --Extra_type $default_Extra_type`
 exit_status=$?
 if [ $exit_status != 0 ]; then
- echo -e "FAIL"
+ echo "FAIL"
 else
- echo -e "PASS"
+ echo "PASS"
 fi
 
 # Test 12	ProductID missing			Should fail
-echo -e "Test 12 ... \c"
+echo "Test 12 ... "
 `./UITS_Tool create \
 --silent \
 --input $default_audio \
@@ -458,13 +458,13 @@ echo -e "Test 12 ... \c"
 --Time $default_Time 2>/dev/null`
 exit_status=$?
 if [ $exit_status != 144 ]; then	# should fail with an exit status of 144
- echo -e "FAIL"
+ echo "FAIL"
 else
- echo -e "PASS"
+ echo "PASS"
 fi
 
 # Test 13	ProductID_type missing		if missing, should default to UPC
-echo -e "Test 13 ... \c"
+echo "Test 13 ... "
 `./UITS_Tool create \
 --silent \
 --input $default_audio \
@@ -493,13 +493,13 @@ echo -e "Test 13 ... \c"
 --Time $default_Time`
 exit_status=$?
 if [ $exit_status != 0 ]; then
- echo -e "FAIL"
+ echo "FAIL"
 else
- echo -e "PASS"
+ echo "PASS"
 fi
 
 # Test 14	ProductID_completed missing	If missing, should default to FALSE
-echo -e "Test 14 ... \c"
+echo "Test 14 ... "
 `./UITS_Tool create \
 --silent \
 --input $default_audio \
@@ -528,13 +528,13 @@ echo -e "Test 14 ... \c"
 --Time $default_Time`
 exit_status=$?
 if [ $exit_status != 0 ]; then
- echo -e "FAIL"
+ echo "FAIL"
 else
- echo -e "PASS"
+ echo "PASS"
 fi
 
 # Test 15	AssetID missing				Should fail
-echo -e "Test 15 ... \c"
+echo "Test 15 ... "
 `./UITS_Tool create \
 --silent \
 --input $default_audio \
@@ -563,13 +563,13 @@ echo -e "Test 15 ... \c"
 --Time $default_Time $2>/dev/null`
 exit_status=$?
 if [ $exit_status != 144 ]; then	# should fail with an exit status of 144
- echo -e "FAIL"
+ echo "FAIL"
 else
- echo -e "PASS"
+ echo "PASS"
 fi
 
 # Test 16	AssetID_type missing		If missing, should default to ISRC
-echo -e "Test 16 ... \c"
+echo "Test 16 ... "
 `./UITS_Tool create \
 --silent \
 --input $default_audio \
@@ -598,13 +598,13 @@ echo -e "Test 16 ... \c"
 --Time $default_Time`
 exit_status=$?
 if [ $exit_status != 0 ]; then
- echo -e "FAIL"
+ echo "FAIL"
 else
- echo -e "PASS"
+ echo "PASS"
 fi
 
 # Test 17	TID missing					If missing, UID should be required
-echo -e "Test 17 ... \c"
+echo "Test 17 ... "
 `./UITS_Tool create \
 --silent \
 --input $default_audio \
@@ -633,13 +633,13 @@ echo -e "Test 17 ... \c"
 --Time $default_Time`
 exit_status=$?
 if [ $exit_status != 0 ]; then
- echo -e "FAIL"
+ echo "FAIL"
 else
- echo -e "PASS"
+ echo "PASS"
 fi
 
 # Test 18	TID_version missing			If missing, should default to 1
-echo -e "Test 18 ... \c"
+echo "Test 18 ... "
 `./UITS_Tool create \
 --silent \
 --input $default_audio \
@@ -668,13 +668,13 @@ echo -e "Test 18 ... \c"
 --Time $default_Time`
 exit_status=$?
 if [ $exit_status != 0 ]; then
- echo -e "FAIL"
+ echo "FAIL"
 else
- echo -e "PASS"
+ echo "PASS"
 fi
 
 # Test 19	UID missing					If missing, TID should be required
-echo -e "Test 19 ... \c"
+echo "Test 19 ... "
 `./UITS_Tool create \
 --silent \
 --input $default_audio \
@@ -703,13 +703,13 @@ echo -e "Test 19 ... \c"
 --Time $default_Time`
 exit_status=$?
 if [ $exit_status != 0 ]; then
- echo -e "FAIL"
+ echo "FAIL"
 else
- echo -e "PASS"
+ echo "PASS"
 fi
 
 # Test 20	UID_version missing			If missing, should default to 1
-echo -e "Test 20 ... \c"
+echo "Test 20 ... "
 `./UITS_Tool create \
 --silent \
 --input $default_audio \
@@ -738,13 +738,13 @@ echo -e "Test 20 ... \c"
 --Time $default_Time`
 exit_status=$?
 if [ $exit_status != 0 ]; then
- echo -e "FAIL"
+ echo "FAIL"
 else
- echo -e "PASS"
+ echo "PASS"
 fi
 
 # Test 21	UID and TID missing		If both missing, should fail
-echo -e "Test 21 ... \c"
+echo "Test 21 ... "
 `./UITS_Tool create \
 --silent \
 --input $default_audio \
@@ -770,8 +770,8 @@ echo -e "Test 21 ... \c"
 --Time $default_Time  2>/dev/null`
 exit_status=$?
 if [ $exit_status != 144 ]; then	# should fail with error code of 144
- echo -e "FAIL"
+ echo "FAIL"
 else
- echo -e "PASS"
+ echo "PASS"
 fi
 
