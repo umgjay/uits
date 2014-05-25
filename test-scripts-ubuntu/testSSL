@@ -1,0 +1,103 @@
+#!/bin/bash
+
+# testUITSargs - Shell script for running the UITS_Tool "argument value" tests
+#
+# Created by Chris Angelli on 8/11/10.
+# Copyright 2010 Universal Music Group. All rights reserved.
+# $Date: 2010-11-05 13:26:15 -0700 (Fri, 05 Nov 2010) $
+# $Revision: 83 $
+
+#
+# The default correct variable values
+#
+
+output_dir="../test/test-output"
+
+default_audio="../test/test_audio.mp3"
+default_xsd="../test/uits.xsd"
+default_uits="$output_dir/testargs_payload.mp3"
+default_algorithm="RSA2048"
+#default_priv="../test/privateRSA2048.pem"
+#default_pub="../test/pubRSA2048.pem"
+default_priv="../test/privateDSA2048.pem"
+default_pub="../test/pubDSA2048.pem"
+default_pubID="33dce5a4f8b67303a290dc5145037569ca38036d"
+default_nonce="QgYnkgYS"
+default_Distributor="A Distributor"
+default_ProductID="My product"
+default_ProductID_type="UPC"
+default_ProductID_completed_type="true"
+default_AssetID="ES1700800500"
+default_AssetID_type="ISRC"
+default_TID="Transaction ID"
+default_TID_version="1"
+default_UID="User ID"
+default_UID_version="1"
+default_URL="http://www.umusic.com"
+default_PA="explicit"
+default_Copyright="allrightsreserved"
+default_Extra="extra content"
+default_Extra_type="blah"
+default_Time="2008-08-30T13:15:04Z"
+
+# Test 23	algorithm	valid values:
+#						 RSA2048(DEFAULT)
+#						 DSA2048
+echo "Test 23 ... \c"
+
+# valid values
+./UITS_Tool create \
+	--verbose \
+	--input $default_audio \
+	--xsd $default_xsd \
+	--uits $default_uits \
+	--embed \
+	--algorithm RSA2048 \
+	--priv  $default_priv \
+	--pub $default_pub \
+	--pubID $default_pubID \
+	--nonce $default_nonce \
+	--Distributor $default_Distributor \
+	--ProductID $default_ProductID \
+	--ProductID_type $default_ProductID_type \
+	--ProductID_completed $default_ProductID_completed_type \
+	--AssetID $default_AssetID \
+	--AssetID_type $default_AssetID_type \
+	--TID $default_TID \
+	--TID_version $default_TID_version \
+	--UID $default_UID \
+	--UID_version $default_UID_version \
+	--URL $default_URL\
+	--PA $default_PA \
+	--Copyright $default_Copyright \
+	--Extra $default_Extra \
+	--Extra_type $default_Extra_type \
+	--Time $default_Time 2>/dev/null
+
+./UITS_Tool create \
+	--verbose \
+	--input $default_audio \
+	--xsd $default_xsd \
+	--uits $default_uits \
+	--embed \
+	--algorithm DSA2048 \
+	--priv  $default_priv \
+	--pub $default_pub \
+	--pubID $default_pubID \
+	--nonce $default_nonce \
+	--Distributor $default_Distributor \
+	--ProductID $default_ProductID \
+	--ProductID_type $default_ProductID_type \
+	--ProductID_completed $default_ProductID_completed_type \
+	--AssetID $default_AssetID \
+	--AssetID_type $default_AssetID_type \
+	--TID $default_TID \
+	--TID_version $default_TID_version \
+	--UID $default_UID \
+	--UID_version $default_UID_version \
+	--URL $default_URL\
+	--PA $default_PA \
+	--Copyright $default_Copyright \
+	--Extra $default_Extra \
+	--Extra_type $default_Extra_type \
+	--Time $default_Time 2>/dev/null

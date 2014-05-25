@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # testCMEcreate - Shell script for running the UITS_Tool "cme_create" tests
 #
@@ -43,7 +43,7 @@ default_Time="2008-08-30T13:15:04Z"
 # Test 1	All arguments correct, embed payload	
 #
 
-echo "CME Test 1 ... \c"
+echo  "CME Test 1 ... "
 `./UITS_Tool cme_create \
 --silent \
 --xsd $default_xsd \
@@ -61,19 +61,19 @@ echo "CME Test 1 ... \c"
 --URL $default_URL\
 --PA $default_PA \
 --Copyright $default_Copyright \
---Extra $default_Extra \
---Extra_type $default_Extra_type \
+-xtra $default_Extra \
+-xtra_type $default_Extra_type \
 --Time $default_Time`
 exit_status=$?
 if [ $exit_status != 0 ]; then
- echo "FAIL"
+ echo  "FAIL"
 else
- echo "PASS"
+ echo  "PASS"
 fi
 
 
 # Test 2   Silent mode	Verify that silent mode only displays an exit code
-echo "CME Test 2 ... \c"
+echo  "CME Test 2 ... "
 return_string=`./UITS_Tool cme_create \
 --silent \
 --xsd $default_xsd \
@@ -91,18 +91,18 @@ return_string=`./UITS_Tool cme_create \
 --URL $default_URL\
 --PA $default_PA \
 --Copyright $default_Copyright \
---Extra $default_Extra \
---Extra_type $default_Extra_type \
+-xtra $default_Extra \
+-xtra_type $default_Extra_type \
 --Time $default_Time`
 exit_status=$?
 if [ "$return_string" == "" ]; then
- echo "PASS"
+ echo  "PASS"
 else
- echo "FAIL"
+ echo  "FAIL"
 fi
 
 # Test 3	uits missing				Should fail
-echo "CME Test 3 ... \c"
+echo  "CME Test 3 ... "
 `./UITS_Tool cme_create \
 --silent \
 --xsd $default_xsd \
@@ -119,18 +119,18 @@ echo "CME Test 3 ... \c"
 --URL $default_URL\
 --PA $default_PA \
 --Copyright $default_Copyright \
---Extra $default_Extra \
---Extra_type $default_Extra_type \
+-xtra $default_Extra \
+-xtra_type $default_Extra_type \
 --Time $default_Time`
 exit_status=$?
 if [ $exit_status != 132 ]; then	# should fail with an exit status of 132
- echo "FAIL"
+ echo  "FAIL"
 else
- echo "PASS"
+ echo  "PASS"
 fi
 
 # Test 4	pub missing					Should fail
-echo "CME Test 4 ... \c"
+echo  "CME Test 4 ... "
 `./UITS_Tool cme_create \
 --silent \
 --xsd $default_xsd \
@@ -147,18 +147,18 @@ echo "CME Test 4 ... \c"
 --URL $default_URL\
 --PA $default_PA \
 --Copyright $default_Copyright \
---Extra $default_Extra \
---Extra_type $default_Extra_type \
+-xtra $default_Extra \
+-xtra_type $default_Extra_type \
 --Time $default_Time`
 exit_status=$?
 if [ $exit_status != 132 ]; then	# should fail with an exit status of 132
- echo "FAIL"
+ echo  "FAIL"
 else
- echo "PASS"
+ echo  "PASS"
 fi
 
 # Test 5	priv missing				Should fail
-echo "CME Test 5 ... \c"
+echo  "CME Test 5 ... "
 `./UITS_Tool cme_create \
 --silent \
 --xsd $default_xsd \
@@ -175,18 +175,18 @@ echo "CME Test 5 ... \c"
 --URL $default_URL\
 --PA $default_PA \
 --Copyright $default_Copyright \
---Extra $default_Extra \
---Extra_type $default_Extra_type \
+-xtra $default_Extra \
+-xtra_type $default_Extra_type \
 --Time $default_Time`
 exit_status=$?
 if [ $exit_status != 132 ]; then	# should fail with an exit status of 132
- echo "FAIL"
+ echo  "FAIL"
 else
- echo "PASS"
+ echo  "PASS"
 fi
 
 # Test 6	pubID missing				Should fail
-echo "CME Test 6 ... \c"
+echo  "CME Test 6 ... "
 
 `./UITS_Tool cme_create \
 --silent \
@@ -204,18 +204,18 @@ echo "CME Test 6 ... \c"
 --URL $default_URL\
 --PA $default_PA \
 --Copyright $default_Copyright \
---Extra $default_Extra \
---Extra_type $default_Extra_type \
+-xtra $default_Extra \
+-xtra_type $default_Extra_type \
 --Time $default_Time`
 exit_status=$?
 if [ $exit_status != 132 ]; then	# should fail with an exit status of 132
- echo "FAIL"
+ echo  "FAIL"
 else
- echo "PASS"
+ echo  "PASS"
 fi
 
 # Test 7	nonce missing				Should fail
-echo "CME Test 7 ... \c"
+echo  "CME Test 7 ... "
 `./UITS_Tool cme_create \
 --silent \
 --xsd $default_xsd \
@@ -232,18 +232,18 @@ echo "CME Test 7 ... \c"
 --URL $default_URL\
 --PA $default_PA \
 --Copyright $default_Copyright \
---Extra $default_Extra \
---Extra_type $default_Extra_type \
+-xtra $default_Extra \
+-xtra_type $default_Extra_type \
 --Time $default_Time 2>/dev/null`
 exit_status=$?
 if [ $exit_status != 144 ]; then	# should fail with an exit status of 144
- echo "FAIL"
+ echo  "FAIL"
 else
- echo "PASS"
+ echo  "PASS"
 fi
 
 # Test 8	Distributor missing			Should fail
-echo "CME Test 8 ... \c"
+echo  "CME Test 8 ... "
 `./UITS_Tool cme_create \
 --silent \
 --xsd $default_xsd \
@@ -260,18 +260,18 @@ echo "CME Test 8 ... \c"
 --URL $default_URL\
 --PA $default_PA \
 --Copyright $default_Copyright \
---Extra $default_Extra \
---Extra_type $default_Extra_type \
+-xtra $default_Extra \
+-xtra_type $default_Extra_type \
 --Time $default_Time 2>/dev/null`
 exit_status=$?
 if [ $exit_status != 144 ]; then	# should fail with an exit status of 144
- echo "FAIL"
+ echo  "FAIL"
 else
- echo "PASS"
+ echo  "PASS"
 fi
 
 # Test 9	Time missing				If missing, should be auto-generated
-echo "CME Test 9 ... \c"
+echo  "CME Test 9 ... "
 `./UITS_Tool cme_create \
 --silent \
 --xsd $default_xsd \
@@ -289,17 +289,17 @@ echo "CME Test 9 ... \c"
 --URL $default_URL\
 --PA $default_PA \
 --Copyright $default_Copyright \
---Extra $default_Extra \
---Extra_type $default_Extra_type`
+-xtra $default_Extra \
+-xtra_type $default_Extra_type`
 exit_status=$?
 if [ $exit_status != 0 ]; then
- echo "FAIL"
+ echo  "FAIL"
 else
- echo "PASS"
+ echo  "PASS"
 fi
 
 # Test 10	ProductID missing			Should fail
-echo "CME Test 10 ... \c"
+echo  "CME Test 10 ... "
 `./UITS_Tool cme_create \
 --silent \
 --xsd $default_xsd \
@@ -316,18 +316,18 @@ echo "CME Test 10 ... \c"
 --URL $default_URL\
 --PA $default_PA \
 --Copyright $default_Copyright \
---Extra $default_Extra \
---Extra_type $default_Extra_type \
+-xtra $default_Extra \
+-xtra_type $default_Extra_type \
 --Time $default_Time 2>/dev/null`
 exit_status=$?
 if [ $exit_status != 144 ]; then	# should fail with an exit status of 144
- echo "FAIL"
+ echo  "FAIL"
 else
- echo "PASS"
+ echo  "PASS"
 fi
 
 # Test 11	ProductID_type missing		if missing, should default to UPC
-echo "CME Test 11 ... \c"
+echo  "CME Test 11 ... "
 `./UITS_Tool cme_create \
 --silent \
 --xsd $default_xsd \
@@ -344,18 +344,18 @@ echo "CME Test 11 ... \c"
 --URL $default_URL\
 --PA $default_PA \
 --Copyright $default_Copyright \
---Extra $default_Extra \
---Extra_type $default_Extra_type \
+-xtra $default_Extra \
+-xtra_type $default_Extra_type \
 --Time $default_Time`
 exit_status=$?
 if [ $exit_status != 0 ]; then
- echo "FAIL"
+ echo  "FAIL"
 else
- echo "PASS"
+ echo  "PASS"
 fi
 
 # Test 12	ProductID_completed present. should fail
-echo "CME Test 12 ... \c"
+echo  "CME Test 12 ... "
 `./UITS_Tool cme_create \
 --silent \
 --xsd $default_xsd \
@@ -374,18 +374,18 @@ echo "CME Test 12 ... \c"
 --URL $default_URL\
 --PA $default_PA \
 --Copyright $default_Copyright \
---Extra $default_Extra \
---Extra_type $default_Extra_type \
+-xtra $default_Extra \
+-xtra_type $default_Extra_type \
 --Time $default_Time`
 exit_status=$?
 if [ $exit_status != 130 ]; then
- echo "FAIL"
+ echo  "FAIL"
 else
- echo "PASS"
+ echo  "PASS"
 fi
 
 # Test 13	AssetID present				Should fail
-echo "CME Test 13 ... \c"
+echo  "CME Test 13 ... "
 `./UITS_Tool cme_create \
 --silent \
 --xsd $default_xsd \
@@ -404,18 +404,18 @@ echo "CME Test 13 ... \c"
 --URL $default_URL\
 --PA $default_PA \
 --Copyright $default_Copyright \
---Extra $default_Extra \
---Extra_type $default_Extra_type \
+-xtra $default_Extra \
+-xtra_type $default_Extra_type \
 --Time $default_Time $2>/dev/null`
 exit_status=$?
 if [ $exit_status != 130 ]; then	# should fail with an exit status of 130
- echo "FAIL"
+ echo  "FAIL"
 else
- echo "PASS"
+ echo  "PASS"
 fi
 
 # Test 14	AssetID_type present. should fail
-echo "CME Test 14 ... \c"
+echo  "CME Test 14 ... "
 `./UITS_Tool cme_create \
 --silent \
 --xsd $default_xsd \
@@ -434,18 +434,18 @@ echo "CME Test 14 ... \c"
 --URL $default_URL\
 --PA $default_PA \
 --Copyright $default_Copyright \
---Extra $default_Extra \
---Extra_type $default_Extra_type \
+-xtra $default_Extra \
+-xtra_type $default_Extra_type \
 --Time $default_Time`
 exit_status=$?
 if [ $exit_status != 130 ]; then
- echo "FAIL"
+ echo  "FAIL"
 else
- echo "PASS"
+ echo  "PASS"
 fi
 
 # Test 15	TID missing	should fail
-echo "CME Test 15 ... \c"
+echo  "CME Test 15 ... "
 `./UITS_Tool cme_create \
 --silent \
 --xsd $default_xsd \
@@ -462,18 +462,18 @@ echo "CME Test 15 ... \c"
 --URL $default_URL\
 --PA $default_PA \
 --Copyright $default_Copyright \
---Extra $default_Extra \
---Extra_type $default_Extra_type \
+-xtra $default_Extra \
+-xtra_type $default_Extra_type \
 --Time $default_Time`
 exit_status=$?
 if [ $exit_status != 144 ]; then
- echo "FAIL"
+ echo  "FAIL"
 else
- echo "PASS"
+ echo  "PASS"
 fi
 
 # Test 16	TID_version missing should fail
-echo "CME Test 16 ... \c"
+echo  "CME Test 16 ... "
 `./UITS_Tool cme_create \
 --silent \
 --xsd $default_xsd \
@@ -490,18 +490,18 @@ echo "CME Test 16 ... \c"
 --URL $default_URL\
 --PA $default_PA \
 --Copyright $default_Copyright \
---Extra $default_Extra \
---Extra_type $default_Extra_type \
+-xtra $default_Extra \
+-xtra_type $default_Extra_type \
 --Time $default_Time`
 exit_status=$?
 if [ $exit_status != 0 ]; then
- echo "FAIL"
+ echo  "FAIL"
 else
- echo "PASS"
+ echo  "PASS"
 fi
 
 # Test 17	UID version present. Should fail.
-echo "CME Test 17 ... \c"
+echo  "CME Test 17 ... "
 `./UITS_Tool cme_create \
 --silent \
 --xsd $default_xsd \
@@ -520,18 +520,18 @@ echo "CME Test 17 ... \c"
 --URL $default_URL\
 --PA $default_PA \
 --Copyright $default_Copyright \
---Extra $default_Extra \
---Extra_type $default_Extra_type \
+-xtra $default_Extra \
+-xtra_type $default_Extra_type \
 --Time $default_Time`
 exit_status=$?
 if [ $exit_status != 130 ]; then
- echo "FAIL"
+ echo  "FAIL"
 else
- echo "PASS"
+ echo  "PASS"
 fi
 
 # Test 18 UID present. should fail
-echo "CME Test 18 ... \c"
+echo  "CME Test 18 ... "
 `./UITS_Tool cme_create \
 --silent \
 --xsd $default_xsd \
@@ -550,12 +550,12 @@ echo "CME Test 18 ... \c"
 --URL $default_URL\
 --PA $default_PA \
 --Copyright $default_Copyright \
---Extra $default_Extra \
---Extra_type $default_Extra_type \
+-xtra $default_Extra \
+-xtra_type $default_Extra_type \
 --Time $default_Time`
 exit_status=$?
 if [ $exit_status != 130 ]; then
- echo "FAIL"
+ echo  "FAIL"
 else
- echo "PASS"
+ echo  "PASS"
 fi

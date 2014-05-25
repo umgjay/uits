@@ -1,12 +1,12 @@
-#!/bin/sh
+#!/bin/bash
 
 # testUITS - Shell script for running the UITS_Tool test suite
 #
 # Created by Chris Angelli on 8/11/10.
 # Copyright 2010 Universal Music Group. All rights reserved.
 #
-# $Date$
-# $Revision$
+# $Date: 2010-12-30 15:43:49 -0800 (Thu, 30 Dec 2010) $
+# $Revision: 84 $
 
 
 help()
@@ -44,15 +44,15 @@ if [ $# == 1 ] ; then # run only requested tests
      ./testUITSaudio $1
   fi 
 else				  # run all tests
-	echo -e "Running create tests"
+	echo "Running create tests"
 	 ./testUITScreate
 
-	echo -e "Running argument validation tests"
+	echo "Running argument validation tests"
 	 ./testUITSargs
 
-	echo -e "Running audio file tests"
+	echo "Running audio file tests"
 	./testUITSaudio 
-	echo -e "Test suite complete"
+	echo "Test suite complete"
 fi
 
 
