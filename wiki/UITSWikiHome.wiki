@@ -11,9 +11,20 @@ implementation. For further information about UITS, go to http://uits.umusic.com
 The UITS reference implementation version 1.0 was completed in March, 2010. It is a command-line tool written in C. The tool creates and validates UITS payloads for MP3
 files. The source code for version 1.0 was used to initiate the Google code repository.
 
-Version 2.0 was completed in October 2010 and added support for MP3, AAC, WAV, FLAC and AIFF file formats.
+October 2010: 
+  * Version 2.0 released
+  * Adds support for MP3, AAC, WAV, FLAC and AIFF file formats
 
-CME support was added in October 2012.
+October 2012: 
+ * Added support for CME
+
+May 2014: 
+  * Upgraded to xcode version 5.1, under OS X Mavericks. Target must be i386.
+  * Fixed some outstanding issues
+ * Added Ubuntu support
+    * uits-ubuntu-make will successfully compile under Ubuntu, but mxml, libxml2, openssl and FLAC libraries must be installed
+    *  test-scripts-ubuntu contain tests scripts that have been tweaked to work under Ubuntu bash shell
+
 
 = Details =
 
@@ -35,8 +46,15 @@ This distribution includes the following directories:
  * *uits-win-mingw*
    * _The Makefile (windows.mak), executable (UITS_Tool.exe), libraries, and scripts  for building the tool using MinGW and running the tool from a DOS command line_
 				
+  * *uits-ubuntu-make*
+   * _The Makefile and executable (UITS_Tool) for Ubuntu_
+
+  * *test-scripts-ubuntu*
+   * _Ubuntu-friendly test scripts_
+
+
 == RUNNING UITS_Tool ==
-	Under both Windows and MacOS, the tool is run from the command line. Open a terminalor DOS command window, cd to the directory containing the executable for the environment.
+	Under both Windows and MacOS, the tool is run from the command line. Open a terminal or DOS command window, cd to the directory containing the executable for the environment.
 
 === For help: ===
  UITS_Tool help	   (Unix)
