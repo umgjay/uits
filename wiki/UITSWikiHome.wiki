@@ -24,6 +24,8 @@ May 2014:
  * Added Ubuntu support
     * uits-ubuntu-make will successfully compile under Ubuntu, but mxml, libxml2, openssl and FLAC libraries must be installed
     *  test-scripts-ubuntu contain tests scripts that have been tweaked to work under Ubuntu bash shell
+ * Uploaded zipped versions of executables to Google Drive since Google Code no longer supports downloads
+   [https://drive.google.com/#folders/0B7vt1WjEFD1lSjd4cGlwQk5ZOE0 UITS_Downloads]
 
 
 = Details =
