@@ -25,19 +25,21 @@
 		83EB939D115AD18C005F460F /* uitsOpenSSL.c in Sources */ = {isa = PBXBuildFile; fileRef = 83EB9396115AD18C005F460F /* uitsOpenSSL.c */; };
 		83EB939E115AD18C005F460F /* uitsPayloadManager.c in Sources */ = {isa = PBXBuildFile; fileRef = 83EB9398115AD18C005F460F /* uitsPayloadManager.c */; };
 		83EFC6B611B5AAE9000482DB /* uitsError.c in Sources */ = {isa = PBXBuildFile; fileRef = 83EFC6B511B5AAE9000482DB /* uitsError.c */; };
-		8DD76FB00486AB0100D96B5E /* uits-osx-xcode.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6A0FF2C0290799A04C91782 /* uits-osx-xcode.1 */; };
+		8DD76FB00486AB0100D96B5E /* uits-osx-xcode.1 in Copy Files */ = {isa = PBXBuildFile; fileRef = C6A0FF2C0290799A04C91782 /* uits-osx-xcode.1 */; };
 		BD29C1A818B80C4200E3B8D2 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BD29C1A718B80B4D00E3B8D2 /* libxml2.dylib */; };
+		BD39074D1996EE0600FF1DBE /* uitsDSFManager.c in Sources */ = {isa = PBXBuildFile; fileRef = BD39074C1996EE0600FF1DBE /* uitsDSFManager.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8DD76FAF0486AB0100D96B5E /* CopyFiles */ = {
+		8DD76FAF0486AB0100D96B5E /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 8;
 			dstPath = /usr/share/man/man1/;
 			dstSubfolderSpec = 0;
 			files = (
-				8DD76FB00486AB0100D96B5E /* uits-osx-xcode.1 in CopyFiles */,
+				8DD76FB00486AB0100D96B5E /* uits-osx-xcode.1 in Copy Files */,
 			);
+			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -77,6 +79,8 @@
 		83EFC6B511B5AAE9000482DB /* uitsError.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = uitsError.c; path = ../source/uitsError.c; sourceTree = SOURCE_ROOT; };
 		8DD76FB20486AB0100D96B5E /* UITS_Tool */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = UITS_Tool; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD29C1A718B80B4D00E3B8D2 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libxml2.dylib; sourceTree = SOURCE_ROOT; };
+		BD39074B1996EDEA00FF1DBE /* uitsDSFManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = uitsDSFManager.h; path = ../source/uitsDSFManager.h; sourceTree = "<group>"; };
+		BD39074C1996EE0600FF1DBE /* uitsDSFManager.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = uitsDSFManager.c; path = ../source/uitsDSFManager.c; sourceTree = "<group>"; };
 		C6A0FF2C0290799A04C91782 /* uits-osx-xcode.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = "uits-osx-xcode.1"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,15 +122,16 @@
 				83A7851112849F4500F48954 /* uitsGenericManager.h */,
 				83EFC6B511B5AAE9000482DB /* uitsError.c */,
 				83EFC6A111B5A631000482DB /* uitsError.h */,
-				833A051E12F292B900A60E66 /* uitsWAVManager.c */,
 				83EB938F115AD18C005F460F /* main.c */,
 				83EB9391115AD18C005F460F /* uits.h */,
-				8385F557116688CE00277C6E /* uitsMP4Manager.c */,
 				8385F4FE116684D300277C6E /* uitsMP4Manager.h */,
+				8385F557116688CE00277C6E /* uitsMP4Manager.c */,
 				83EB9392115AD18C005F460F /* uitsAudioFileManager.c */,
 				83EB9393115AD18C005F460F /* uitsAudioFileManager.h */,
-				83EB9394115AD18C005F460F /* uitsMP3Manager.c */,
 				83EB9395115AD18C005F460F /* uitsMP3Manager.h */,
+				83EB9394115AD18C005F460F /* uitsMP3Manager.c */,
+				BD39074B1996EDEA00FF1DBE /* uitsDSFManager.h */,
+				BD39074C1996EE0600FF1DBE /* uitsDSFManager.c */,
 				83EB9396115AD18C005F460F /* uitsOpenSSL.c */,
 				83EB9397115AD18C005F460F /* uitsOpenSSL.h */,
 				83D768C9145663E900801EB0 /* xmlManager.h */,
@@ -140,6 +145,7 @@
 				831F3CC61190BB26000A685A /* uitsAIFFManager.h */,
 				831F3CC71190BB26000A685A /* uitsAIFFManager.c */,
 				834F813C11A1B0BC009B4EA0 /* uitsWAVManager.h */,
+				833A051E12F292B900A60E66 /* uitsWAVManager.c */,
 				83B604F0128D0EB900658292 /* uitsHTMLManager.h */,
 				83B604F1128D0EB900658292 /* uitsHTMLManager.c */,
 			);
@@ -171,7 +177,7 @@
 			buildPhases = (
 				8DD76FAB0486AB0100D96B5E /* Sources */,
 				8DD76FAD0486AB0100D96B5E /* Frameworks */,
-				8DD76FAF0486AB0100D96B5E /* CopyFiles */,
+				8DD76FAF0486AB0100D96B5E /* Copy Files */,
 			);
 			buildRules = (
 			);
@@ -221,6 +227,7 @@
 				83EB939E115AD18C005F460F /* uitsPayloadManager.c in Sources */,
 				8385F558116688CE00277C6E /* uitsMP4Manager.c in Sources */,
 				8340BE84117CE5E600BF7652 /* uitsFLACManager.c in Sources */,
+				BD39074D1996EE0600FF1DBE /* uitsDSFManager.c in Sources */,
 				831F3CC81190BB26000A685A /* uitsAIFFManager.c in Sources */,
 				83EFC6B611B5AAE9000482DB /* uitsError.c in Sources */,
 				83A7851212849F4500F48954 /* uitsGenericManager.c in Sources */,

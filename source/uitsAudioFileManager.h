@@ -32,7 +32,8 @@ enum uitsAudioFileTypes {
 	AIFF,
 	WAV,
 	HTML,
-	GENERIC
+	GENERIC,
+    DSF
 };
 
 /* The audio callbacks */

@@ -28,6 +28,7 @@ ARGUMENTS:
     testUITS flac        runs test cases for flac files
     testUITS aif         runs test cases for aif files
     testUITS html        runs test cases for html files
+    testUITS dsf         runs test cases for dsf files
 HELP
     exit 0
 }

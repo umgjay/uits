@@ -41,7 +41,7 @@ default_Time="2008-08-30T13:15:04Z"
 
 # Test 22	audio file doesn't exist	
 
-echo -e "Test 22 ... \c"
+echo "Test 22 ... \c"
 `./UITS_Tool create \
 --silent \
 --input blah \
@@ -71,15 +71,15 @@ echo -e "Test 22 ... \c"
 --Time $default_Time`
 exit_status=$?
 if [ $exit_status != 129 ]; then	# should return error 129
- echo -e "FAIL"
+ echo "FAIL"
 else
- echo -e "PASS"
+ echo "PASS"
 fi
 
 # Test 23	algorithm	valid values:
 #						 RSA2048(DEFAULT)
 #						 DSA2048
-echo -e "Test 23 ... \c"
+echo "Test 23 ... \c"
 
 test_result="PASS"
 
@@ -152,10 +152,10 @@ if [ $exit_status != 147 ]; then	#should return error code 144
  test_result="FAIL"
 fi
 
-echo -e $test_result
+echo $test_result
 
 # Test 24	pub file doesn't exist	
-echo -e "Test 24 ... \c"
+echo "Test 24 ... \c"
 `./UITS_Tool create \
 --silent \
 --input $default_audio \
@@ -185,13 +185,13 @@ echo -e "Test 24 ... \c"
 --Time $default_Time`
 exit_status=$?
 if [ $exit_status != 129 ]; then	# should return error 129
- echo -e "FAIL"
+ echo "FAIL"
 else
- echo -e "PASS"
+ echo "PASS"
 fi
 
 # Test 25	priv file doesn't exist	
-echo -e "Test 25 ... \c"
+echo "Test 25 ... \c"
 `./UITS_Tool create \
 --silent \
 --input $default_audio \
@@ -221,13 +221,13 @@ echo -e "Test 25 ... \c"
 --Time $default_Time`
 exit_status=$?
 if [ $exit_status != 129 ]; then	# should return error 129
- echo -e "FAIL"
+ echo "FAIL"
 else
- echo -e "PASS"
+ echo "PASS"
 fi
 
 # Test 26	xsd file doesn't exist	
-echo -e "Test 26 ... \c"
+echo "Test 26 ... \c"
 `./UITS_Tool create \
 --silent \
 --input $default_audio \
@@ -257,13 +257,13 @@ echo -e "Test 26 ... \c"
 --Time $default_Time`
 exit_status=$?
 if [ $exit_status != 129 ]; then	# should return error 129
- echo -e "FAIL"
+ echo "FAIL"
 else
- echo -e "PASS"
+ echo "PASS"
 fi
 
 # Test 27	nonce	must be 8 bit base-64 encoded value
-echo -e "Test 27 ... \c"
+echo "Test 27 ... \c"
 `./UITS_Tool create \
 --silent \
 --input $default_audio \
@@ -293,13 +293,13 @@ echo -e "Test 27 ... \c"
 --Time $default_Time 2>/dev/null`
 exit_status=$?
 if [ $exit_status != 144 ]; then	# should fail with an exit status of 144
- echo -e "FAIL"
+ echo "FAIL"
 else
- echo -e "PASS"
+ echo "PASS"
 fi
 
 # Test 28	Time	must be ISO8601 format
-echo -e "Test 28 ... \c"
+echo "Test 28 ... \c"
 `./UITS_Tool create \
 --silent \
 --input $default_audio \
@@ -329,13 +329,13 @@ echo -e "Test 28 ... \c"
 --Time 12:00 2>/dev/null`
 exit_status=$?
 if [ $exit_status != 144 ]; then	# should fail with an exit status of 144
- echo -e "FAIL"
+ echo "FAIL"
 else
- echo -e "PASS"
+ echo "PASS"
 fi
 
 # Test 29	AssetID	dashes not included
-echo -e "Test 30 ... \c"
+echo "Test 30 ... \c"
 `./UITS_Tool create \
 --silent \
 --input $default_audio \
@@ -364,7 +364,7 @@ echo -e "Test 30 ... \c"
 --Time $default_Time 2>/dev/null`
 exit_status=$?
 if [ $exit_status != 144 ]; then	# should fail with an exit status of 144
- echo -e "FAIL"
+ echo "FAIL"
 else
- echo -e "PASS"
+ echo "PASS"
 fi

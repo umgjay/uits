@@ -17,7 +17,7 @@ CC      = gcc
 OPTIM   = -Os -g 
 CFLAGS  = $(OPTIM) -I /usr/include/libxml2 -I /usr/include/openssl -I mxml/include -I /usr/include/FLAC
 LDFLAGS = $(OPTIM)
-OBJECTS = main.o uitsAudioFileManager.o uitsMP3Manager.o uitsPayloadManager.o uitsOpenSSL.o uitsMP4Manager.o uitsFLACManager.o uitsAIFFManager.o uitsWAVManager.o uitsError.o uitsGenericManager.o uitsHTMLManager.o cmePayloadManager.o xmlManager.o
+OBJECTS = main.o uitsAudioFileManager.o uitsMP3Manager.o uitsPayloadManager.o uitsOpenSSL.o uitsMP4Manager.o uitsFLACManager.o uitsAIFFManager.o uitsWAVManager.o uitsError.o uitsGenericManager.o uitsHTMLManager.o cmePayloadManager.o xmlManager.o uitsDSFManager.o
 RM = rm
 
 #
