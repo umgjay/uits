@@ -28,6 +28,7 @@ ARGUMENTS:
     testUITS flac        runs test cases for flac files
     testUITS aif         runs test cases for aif files
     testUITS html        runs test cases for html files
+    testUITS dsf         runs test cases for dsf files
 HELP
     exit 0
 }
@@ -44,15 +45,15 @@ if [ $# == 1 ] ; then # run only requested tests
      ./testUITSaudio $1
   fi 
 else				  # run all tests
-	echo -e "Running create tests"
+	echo "Running create tests"
 	 ./testUITScreate
 
-	echo -e "Running argument validation tests"
+	echo "Running argument validation tests"
 	 ./testUITSargs
 
-	echo -e "Running audio file tests"
+	echo "Running audio file tests"
 	./testUITSaudio 
-	echo -e "Test suite complete"
+	echo "Test suite complete"
 fi
 
 

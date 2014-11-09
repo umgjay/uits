@@ -15,7 +15,7 @@
  */
 
 #ifndef _uitsmp3manager_h_
-#  define _uitsmp3manager_h_
+#define _uitsmp3manager_h_
 
 #include	<math.h>
 #include	<wchar.h>

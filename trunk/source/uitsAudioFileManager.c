@@ -29,6 +29,7 @@ UITS_AUDIO_CALLBACKS uitsAudioCB [] = {
 	{ MP4,		mp4IsValidFile,		mp4GetMediaHash,	 mp4EmbedPayload,		mp4ExtractPayload },
 	{ FLAC,		flacIsValidFile,	flacGetMediaHash,	 flacEmbedPayload,		flacExtractPayload },
 	{ AIFF,		aiffIsValidFile,	aiffGetMediaHash,	 aiffEmbedPayload,		aiffExtractPayload },
+	{ DSF,      dsfIsValidFile,     dsfGetMediaHash,     dsfEmbedPayload,	    dsfExtractPayload },
 	{ WAV,		wavIsValidFile,		wavGetMediaHash,	 wavEmbedPayload,		wavExtractPayload },
 	{ HTML,		htmlIsValidFile,	htmlGetMediaHash,	 htmlEmbedPayload,		htmlExtractPayload },
 	{ GENERIC,  genericIsValidFile, genericGetMediaHash, genericEmbedPayload,	genericExtractPayload },

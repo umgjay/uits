@@ -36,6 +36,7 @@ The UITS test suite will support running the following subsets of the tests
     testUITS wav         runs test cases for wav files
     testUITS flac        runs test cases for flac files
     testUITS aif         runs test cases for aif files
+    testUITS dsf         runs test cases for dsf files
 
 
 UITS_Tool Version 2.0 Test Cases		

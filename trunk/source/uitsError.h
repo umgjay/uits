@@ -34,7 +34,8 @@ enum {
 	ERR_SCHEMA,		// Error occurred validating schema against payload XML
 	ERR_HASH,		// Error occurred verifying the media hash
 	ERR_SIG,		// Error occurred verifying signature
-	ERR_SSL			// Error occurred in open ssl manager
+	ERR_SSL,		// Error occurred in open ssl manager
+    ERR_DSF,        // Error occured in the DSF manager
 };
 
 typedef struct {

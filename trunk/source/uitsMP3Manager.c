@@ -346,7 +346,7 @@ char *mp3ExtractPayload (char *audioFileName)
 				break;
 				
 			default:
-				vprintf("Unidentified frame at %ld\n", (ftello(audioInFP) - 4));
+				vprintf("Unidentified frame at %lld\n", (ftello(audioInFP) - 4));
 				break;
 		}
 		

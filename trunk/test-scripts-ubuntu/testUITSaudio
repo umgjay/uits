@@ -8,7 +8,7 @@
 # $Date: 2010-12-30 15:43:49 -0800 (Thu, 30 Dec 2010) $
 # $Revision: 84 $
 #
-# usage: testUITSaudio [mp3 aac wav flac]
+# usage: testUITSaudio [mp3 aac wav flac aif dsf]
 
 output_dir="../test/test-output"
 
@@ -164,7 +164,7 @@ UITS_verify_standalone()
 }
 
 if [ $# -lt 1 ] ; then
-	file_types=(mp3 m4a wav flac html) # no arguments, test all audio file types
+	file_types=(mp3 m4a wav flac html dsf) # no arguments, test all audio file types
 elif [ $# == 1 ] ; then
 	file_types=($1) # test only requested file type
 else

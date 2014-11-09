@@ -39,6 +39,7 @@
 #include "uitsAudioFileManager.h"
 #include "uitsMP3Manager.h"
 #include "uitsMP4Manager.h"
+#include "uitsDSFManager.h"
 #include "uitsFLACManager.h"
 #include "uitsAIFFManager.h"
 #include "uitsWAVManager.h"
