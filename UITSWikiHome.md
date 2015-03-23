@@ -1,0 +1,102 @@
+# Summary #
+
+Welcome to the Unique Identifier Technology Solution (UITS) Wiki. This Wiki
+contains information about the UITS specification and about the UITS reference
+implementation. For further information about UITS, go to http://uits.umusic.com.
+
+# Introduction #
+
+The UITS reference implementation version 1.0 was completed in March, 2010. It is a command-line tool written in C. The tool creates and validates UITS payloads for MP3
+files. The source code for version 1.0 was used to initiate the Google code repository.
+
+October 2010:
+  * Version 2.0 released
+  * Adds support for MP3, AAC, WAV, FLAC and AIFF file formats
+
+October 2012:
+  * Added support for CME
+
+May 2014:
+  * Upgraded to xcode version 5.1, under OS X Mavericks. Target must be i386.
+  * Fixed some outstanding issues
+  * Added Ubuntu support
+    * uits-ubuntu-make will successfully compile under Ubuntu, but mxml, libxml2, openssl and FLAC libraries must be installed
+    * test-scripts-ubuntu contain tests scripts that have been tweaked to work under Ubuntu bash shell
+  * Uploaded zipped versions of executables to Google Drive since Google Code no longer supports downloads
+> > [UITS\_Downloads](https://drive.google.com/#folders/0B7vt1WjEFD1lSjd4cGlwQk5ZOE0)
+
+
+# Details #
+
+**UITS\_Tool** is a command-line tool that creates, validates, and extracts UITS and CME
+payloads.
+
+This distribution includes the following directories:
+
+  * **doc**
+    * _UITS documentation_
+  * **source**
+    * _The source (.c) and header (.h) files used for both MacOS and Windows_
+  * **test**
+    * _Platform-independent test files that are used by scripts in each of the platform-specific build directories_
+  * **uits-osx-make**
+    * _The Makefile, executable (UITS\_Tool), libraries, and shell script for building and running the tool from the Unix command line_
+  * **uits-osx-code**
+    * _A Mac X-Code project for building and running the UITS\_Tool_
+  * **uits-win-mingw**
+    * _The Makefile (windows.mak), executable (UITS\_Tool.exe), libraries, and scripts  for building the tool using MinGW and running the tool from a DOS command line_
+
+  * **uits-ubuntu-make**
+    * _The Makefile and executable (UITS\_Tool) for Ubuntu_
+
+  * **test-scripts-ubuntu**
+    * _Ubuntu-friendly test scripts_
+
+
+## RUNNING UITS\_Tool ##
+
+> Under both Windows and MacOS, the tool is run from the command line. Open a terminal or DOS command window, cd to the directory containing the executable for the environment.
+
+### For help: ###
+> UITS\_Tool help	   (Unix)
+
+> UITS\_Tool.exe help (DOS)
+
+The tool is also distributed with shell (or DOS command) scripts that make running the tool easier. Under unix, type ./runUITS.sh. Under DOS, type runUITS\_create.bat or runUITS\_verify.bat.
+
+### BUILDING UITS\_Tool ###
+
+
+The UITS\_Tool is written in C and has been compiled using the GNU C compiler on Mac and Windows (MinGW). It uses several open source libraries. Compiled versions of those libraries are distributed with the tool. To build in another environment, those  libraries must be re-compiled. The three libraries are:
+  * OpenSSL -  (http://www.openssl.org/) Version 1.0 beta4
+  * Libxml2 -  (http://xmlsoft.org/) Distributed with MacOSX
+  * Mini-XML - (http://www.minixml.org/)
+  * FLAC     - (http://flac.sourceforge.net/)
+
+To build under MacOSX using X-Code, use the xcode project,
+  * uits-osx-xcode/uits-osx-xcode.xcodeproj
+
+To build under MacOSX from the command line:
+  1. open a terminal window
+  1. cd to uits-osx-make
+  1. make
+
+To build under Windows:
+  1. Install MinGW and Msys
+  1. Run MinGW
+  1. cd to uits-win-mingw
+  1. make -f windows.mak
+
+### TESTING UITS\_Tool ###
+The test-scripts directory contains a UITS\_TEST\_README file which lists all of the test cases.  It also contains the scripts for running the tests:
+  * testUITS
+  * testUITSargs
+  * testUITSaudio
+  * testUITScreate
+
+The testUITS script calls each of the other scripts. It will test whatever version of the UITS\_tool is in the test-script directory.
+
+To run all tests:
+# cd to test-scripts
+# . ./testUITS (or ./testUITS help)
+
